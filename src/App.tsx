@@ -38,19 +38,28 @@ function App() {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex items-center justify-center h-screen">
+        Loading...
+      </div>
+    );
   }
 
   return (
     <>
-      <button
-        type="button"
-        onClick={handlePrint}
-        className="absolute text-white bg-blue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 ml-2 mt-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-      >
-        Print
-      </button>
-      <div className="bg-[#ffffff] flex flex-row justify-center w-full">
+      <div className="w-full h-full flex flex-col justify-center items-center">
+        <button
+          type="button"
+          onClick={handlePrint}
+          className="text-white bg-blue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 ml-2 mt-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Print
+        </button>
+        <div className="mt-2">
+          <p>Click this button to generate your Report.</p>
+        </div>
+      </div>
+      <div className="bg-[#ffffff] flex-row justify-center w-full hidden">
         <div
           ref={componentRef}
           className="bg-[#ffffff] w-[595px] h-[824px] relative"

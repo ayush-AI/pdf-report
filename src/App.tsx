@@ -2,11 +2,26 @@ import { LocationIcon } from "./assets/LocationIcon";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import { useReactToPrint } from "react-to-print";
 import { useRef } from "react";
+import "./App.css";
+
 function App() {
   const componentRef = useRef(null);
+
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
+    pageStyle: `
+    @page {
+      size: A5;
+    }
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important; 
+      }
+    }
+  `,
   });
+
   const data = [];
 
   const rand = 300;
@@ -28,11 +43,11 @@ function App() {
       >
         Print
       </button>
-      <div
-        ref={componentRef}
-        className="bg-[#ffffff] flex flex-row justify-center w-full"
-      >
-        <div className="bg-[#ffffff] w-[595px] h-[824px] relative">
+      <div className="bg-[#ffffff] flex flex-row justify-center w-full">
+        <div
+          ref={componentRef}
+          className="bg-[#ffffff] w-[595px] h-[824px] relative"
+        >
           <div className="absolute w-[563px] h-[2px] top-[800px] left-[16px] [background:linear-gradient(180deg,rgb(0,93,255)_0%,rgb(0,163,255)_44.27%,rgb(33,221,255)_100%)]" />
           <div className="absolute w-[572px] h-[26px] top-[16px] left-[16px]">
             <img

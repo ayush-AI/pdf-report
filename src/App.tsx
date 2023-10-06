@@ -1,10 +1,37 @@
 import { LocationIcon } from "./assets/LocationIcon";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
+import { useReactToPrint } from "react-to-print";
+import { useRef } from "react";
 function App() {
-  // const [count, setCount] = useState(0);
+  const componentRef = useRef(null);
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+  const data = [];
+
+  const rand = 300;
+  for (let i = 0; i < 10; i++) {
+    const d = {
+      year: 2000 + i,
+      value: Math.random() * (rand + 50) + 100,
+    };
+
+    data.push(d);
+  }
 
   return (
     <>
-      <div className="bg-[#ffffff] flex flex-row justify-center w-full">
+      <button
+        type="button"
+        onClick={handlePrint}
+        className="absolute text-white bg-blue hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 ml-2 mt-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+      >
+        Print
+      </button>
+      <div
+        ref={componentRef}
+        className="bg-[#ffffff] flex flex-row justify-center w-full"
+      >
         <div className="bg-[#ffffff] w-[595px] h-[842px] relative">
           <div className="absolute w-[563px] h-[2px] top-[800px] left-[16px] [background:linear-gradient(180deg,rgb(0,93,255)_0%,rgb(0,163,255)_44.27%,rgb(33,221,255)_100%)]" />
           <div className="absolute w-[572px] h-[26px] top-[16px] left-[16px]">
@@ -46,75 +73,31 @@ function App() {
                   <div className="absolute top-[7px] left-[13px] [font-family:'Poppins',Helvetica] font-medium text-blue text-[9px] tracking-[0] leading-[10px] whitespace-nowrap">
                     Burglary
                   </div>
-                </div>
-                <div className="absolute top-[98px] left-[-3px] -rotate-90 [font-family:'Poppins',Helvetica] font-medium text-[#1e1e1e] text-[9px] tracking-[0] leading-[10px] whitespace-nowrap">
-                  Arrests
+                  <div className="absolute top-[98px] left-[-3px] -rotate-90 [font-family:'Poppins',Helvetica] font-medium text-[#1e1e1e] text-[9px] tracking-[0] leading-[10px] whitespace-nowrap">
+                    Arrests
+                  </div>
                 </div>
               </div>
               <div className="absolute w-[520px] h-[151px] top-[36px] left-[22px] bg-white rounded-[12.34px] shadow-[0px_7.72px_37.03px_#0000000a]" />
-              <div className="absolute w-[495px] h-[134px] top-[44px] left-[34px]">
-                <div className="relative w-[505px] h-[134px]">
-                  <div className="top-[6px] left-0 text-secondary-blueberry-patch600 text-[9.3px] text-center leading-[12.3px] whitespace-nowrap absolute [font-family:'Poppins',Helvetica] font-medium tracking-[0]">
-                    100
-                  </div>
-                  <div className="top-[31px] left-[5px] text-secondary-blueberry-patch600 text-[9.3px] text-center leading-[12.3px] whitespace-nowrap absolute [font-family:'Poppins',Helvetica] font-medium tracking-[0]">
-                    75
-                  </div>
-                  <div className="top-[56px] left-[5px] text-secondary-blueberry-patch600 text-[9.3px] text-center leading-[12.3px] whitespace-nowrap absolute [font-family:'Poppins',Helvetica] font-medium tracking-[0]">
-                    50
-                  </div>
-                  <div className="top-[80px] left-[4px] text-secondary-blueberry-patch600 text-[9.3px] text-center leading-[12.3px] whitespace-nowrap absolute [font-family:'Poppins',Helvetica] font-medium tracking-[0]">
-                    25
-                  </div>
-                  <div className="top-[105px] left-[10px] text-secondary-blueberry-patch600 text-[9.3px] text-center leading-[12.3px] whitespace-nowrap absolute [font-family:'Poppins',Helvetica] font-medium tracking-[0]">
-                    0
-                  </div>
-                  <div className="w-[474px] h-[114px] left-[22px] absolute top-0">
-                    <div className="absolute w-px h-[114px] top-0 left-0 bg-tertiary-blue-hydrangea600" />
-                    <div className="absolute w-[474px] h-px top-[86px] left-0 bg-tertiary-blue-hydrangea600" />
-                    <div className="absolute w-[474px] h-px top-[62px] left-0 bg-tertiary-blue-hydrangea600" />
-                    <div className="absolute w-[474px] h-px top-[37px] left-0 bg-tertiary-blue-hydrangea600" />
-                    <div className="absolute w-[474px] h-px top-[12px] left-0 bg-tertiary-blue-hydrangea600" />
-                    <img
-                      className="absolute w-[471px] h-[74px] top-[26px] left-px"
-                      alt="Vector"
-                      src="https://c.animaapp.com/rS8XbRM4/img/vector-2751.svg"
-                    />
-                  </div>
-                  <div className="absolute w-[474px] h-px top-[114px] left-[22px] bg-tertiary-blue-hydrangea600" />
-                  <div className="items-start gap-[24.69px] top-[121px] left-[22px] inline-flex absolute">
-                    <div className="relative w-fit mt-[-0.77px] [font-family:'Poppins',Helvetica] font-medium text-secondary-blueberry-patch600 text-[9.3px] text-center tracking-[0] leading-[12.3px] whitespace-nowrap">
-                      2012
-                    </div>
-                    <div className="relative w-fit mt-[-0.77px] [font-family:'Poppins',Helvetica] font-medium text-secondary-blueberry-patch600 text-[9.3px] text-center tracking-[0] leading-[12.3px] whitespace-nowrap">
-                      2013
-                    </div>
-                    <div className="relative w-fit mt-[-0.77px] [font-family:'Poppins',Helvetica] font-medium text-secondary-blueberry-patch600 text-[9.3px] text-center tracking-[0] leading-[12.3px] whitespace-nowrap">
-                      2014
-                    </div>
-                    <div className="relative w-fit mt-[-0.77px] [font-family:'Poppins',Helvetica] font-medium text-secondary-blueberry-patch600 text-[9.3px] text-center tracking-[0] leading-[12.3px] whitespace-nowrap">
-                      2015
-                    </div>
-                    <div className="relative w-fit mt-[-0.77px] [font-family:'Poppins',Helvetica] font-medium text-secondary-blueberry-patch600 text-[9.3px] text-center tracking-[0] leading-[12.3px] whitespace-nowrap">
-                      2016
-                    </div>
-                    <div className="relative w-fit mt-[-0.77px] [font-family:'Poppins',Helvetica] font-medium text-secondary-blueberry-patch600 text-[9.3px] text-center tracking-[0] leading-[12.3px] whitespace-nowrap">
-                      2017
-                    </div>
-                    <div className="relative w-fit mt-[-0.77px] [font-family:'Poppins',Helvetica] font-medium text-secondary-blueberry-patch600 text-[9.3px] text-center tracking-[0] leading-[12.3px] whitespace-nowrap">
-                      2018
-                    </div>
-                    <div className="relative w-fit mt-[-0.77px] [font-family:'Poppins',Helvetica] font-medium text-secondary-blueberry-patch600 text-[9.3px] text-center tracking-[0] leading-[12.3px] whitespace-nowrap">
-                      2019
-                    </div>
-                    <div className="relative w-fit mt-[-0.77px] [font-family:'Poppins',Helvetica] font-medium text-secondary-blueberry-patch600 text-[9.3px] text-center tracking-[0] leading-[12.3px] whitespace-nowrap">
-                      2020
-                    </div>
-                    <div className="relative w-fit mt-[-0.77px] [font-family:'Poppins',Helvetica] font-medium text-secondary-blueberry-patch600 text-[9.3px] text-center tracking-[0] leading-[12.3px] whitespace-nowrap">
-                      2022
-                    </div>
-                  </div>
-                </div>
+              <div className="absolute w-[495px] h-[134px] top-[44px] ">
+                <LineChart width={520} height={151} data={data}>
+                  <Line dataKey="value" stroke="#8884d8" dot={false} />
+                  <CartesianGrid
+                    vertical={false}
+                    stroke="rgba(186, 194, 219, 1)"
+                  />
+                  <XAxis
+                    dataKey="year"
+                    stroke="rgba(186, 194, 219, 1)"
+                    tickLine={false}
+                    fontSize={10}
+                  />
+                  <YAxis
+                    tickLine={false}
+                    stroke="rgba(186, 194, 219, 1)"
+                    fontSize={10}
+                  />
+                </LineChart>
               </div>
             </div>
           </div>

@@ -47,7 +47,7 @@ function App() {
 
   return (
     <>
-      <div className="w-full h-full flex flex-col justify-center items-center">
+      <div className="buttonContainer">
         <button
           type="button"
           onClick={handlePrint}

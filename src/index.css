@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  --blue: rgba(20, 99, 255, 1);
+  --chun-li-blue100: rgba(232, 238, 251, 1);
+  --main-void400: rgba(107, 110, 124, 1);
+  --main-void600: rgba(9, 14, 36, 1);
+  --secondary-blueberry-patch600: rgba(98, 110, 153, 1);
+  --tertiary-blue-hydrangea300: rgba(227, 231, 241, 1);
+  --tertiary-blue-hydrangea600: rgba(186, 194, 219, 1);
+  --white: rgba(255, 255, 255, 1);
+}

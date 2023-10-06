@@ -32,7 +32,7 @@ function App() {
         ref={componentRef}
         className="bg-[#ffffff] flex flex-row justify-center w-full"
       >
-        <div className="bg-[#ffffff] w-[595px] h-[842px] relative">
+        <div className="bg-[#ffffff] w-[595px] h-[824px] relative">
           <div className="absolute w-[563px] h-[2px] top-[800px] left-[16px] [background:linear-gradient(180deg,rgb(0,93,255)_0%,rgb(0,163,255)_44.27%,rgb(33,221,255)_100%)]" />
           <div className="absolute w-[572px] h-[26px] top-[16px] left-[16px]">
             <img

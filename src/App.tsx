@@ -1,11 +1,26 @@
 import { LocationIcon } from "./assets/LocationIcon";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
 import { useReactToPrint } from "react-to-print";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
+import useCrimeData from "./hooks/useCrimeData";
+
+interface CrimeData {
+  year: number;
+  value: number;
+}
 
 function App() {
   const componentRef = useRef(null);
+  const { data: responseData, isLoading } = useCrimeData("Burglary");
+  const [data, setData] = useState<CrimeData[]>();
+
+  useEffect(() => {
+    if (responseData) {
+      setData(responseData);
+      console.log("hi");
+    }
+  }, [responseData]);
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -22,16 +37,8 @@ function App() {
   `,
   });
 
-  const data = [];
-
-  const rand = 300;
-  for (let i = 0; i < 10; i++) {
-    const d = {
-      year: 2000 + i,
-      value: Math.random() * (rand + 50) + 100,
-    };
-
-    data.push(d);
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
 
   return (
@@ -109,6 +116,9 @@ function App() {
                   />
                   <YAxis
                     tickLine={false}
+                    scale={"linear"}
+                    type="number"
+                    domain={[200, 700]}
                     stroke="rgba(186, 194, 219, 1)"
                     fontSize={10}
                   />
